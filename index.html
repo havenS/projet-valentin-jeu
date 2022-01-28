@@ -118,8 +118,8 @@
 
         coins = this.physics.add.group({
           key: "coin",
-          repeat: 8,
-          setXY: { x: 40, y: 0, stepX: 180 },
+          repeat: 9,
+          setXY: { x: 40, y: 100, stepX: 120 },
         });
         coins.children.iterate(function (child) {
           child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
@@ -156,6 +156,12 @@
 
         score += 10;
         scoreText.setText("Score: " + score);
+
+        if(score == 100) {
+            alert('Bien joué ! On recommence !')
+            restart()
+        }
+
       }
       function restart() {
         window.location.reload();
